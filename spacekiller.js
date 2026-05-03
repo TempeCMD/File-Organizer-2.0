@@ -2,6 +2,10 @@ const fs = require("fs");
 const path = require("path");
 
 function scanLarge(folder, minMB = 100) {
+  if (!folder) {
+    throw new Error("Path folder tidak boleh kosong untuk scanLarge.");
+  }
+
   const result = [];
   const items = fs.readdirSync(folder);
 
