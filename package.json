@@ -1,0 +1,14 @@
+{
+  "name": "file-organizer",
+  "version": "2.0.0",
+  "description": "File Organizer yang dibuat oleh Chatgpt dan TempeCMD",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^13.4.2"
+  }
+}
