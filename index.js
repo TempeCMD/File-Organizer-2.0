@@ -203,10 +203,7 @@ function menu(){
 
     if(ans === "1") return organize();
     if(ans === "2") return undo();
-    if(ans === "3"){
-      scanLarge();
-      return menu();
-    }
+    if(ans === "3") return space();
     if(ans === "4"){
       help();
       return menu();
@@ -216,6 +213,32 @@ function menu(){
     }
 
     process.exit();
+  });
+}
+
+function space(folder){
+  if(!folder){
+    ask("Masukkan path folder untuk scan space: ", space);
+    return;
+  }
+
+  folder = resolveShortcut(folder);
+
+  if(!fs.existsSync(folder)){
+    console.log("Folder tidak ditemukan.");
+    return;
+  }
+
+  const data = scanLarge(folder, 100);
+
+  console.log("Large files:");
+  if(data.length === 0){
+    console.log("Tidak ada file besar yang ditemukan.");
+    return;
+  }
+
+  data.forEach(x=>{
+    console.log(x.name, "-", x.sizeMB + " MB");
   });
 }
 
@@ -230,13 +253,8 @@ else if(cmd === "undo"){
 else if(cmd === "organize"){
   organize(process.argv[3]);
 }
-if(cmd === "space"){
- const data = scanLarge(process.argv[3], 100);
-
- console.log("Large files:");
- data.forEach(x=>{
-   console.log(x.name, "-", x.sizeMB + " MB");
- });
+else if(cmd === "space"){
+  space(process.argv[3]);
 }
 else{
   menu();
