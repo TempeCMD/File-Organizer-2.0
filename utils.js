@@ -61,12 +61,11 @@ function resolveShortcut(input){
   return input;
 }
 
-module.exports.resolveShortcut = resolveShortcut;
-
 module.exports = {
   ext,
   hidden,
   now,
   formatBytes,
+  resolveShortcut,
   prefixFromFolder
 };
