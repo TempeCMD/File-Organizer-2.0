@@ -204,7 +204,7 @@ function menu(){
     if(ans === "1") return organize();
     if(ans === "2") return undo();
     if(ans === "3"){
-      space();
+      scanLarge();
       return menu();
     }
     if(ans === "4"){
