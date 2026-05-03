@@ -1,3 +1,4 @@
+const aliases = require("./paths");
 const path = require("path");
 
 function ext(name){
@@ -41,9 +42,6 @@ function prefixFromFolder(folderPath){
 
   return base.substring(0,2).toUpperCase();
 }
-
-const aliases = require("./paths");
-const path = require("path");
 
 function resolveShortcut(input){
 
